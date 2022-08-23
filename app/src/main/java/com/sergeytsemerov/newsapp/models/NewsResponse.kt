@@ -1,4 +1,6 @@
-package com.sergeytsemerov.newsapp.ui
+package com.sergeytsemerov.newsapp.models
+
+import com.sergeytsemerov.newsapp.models.Article
 
 data class NewsResponse(
     val articles: List<Article>,

@@ -1,7 +1,7 @@
-package com.sergeytsemerov.newsapp.ui.api
+package com.sergeytsemerov.newsapp.api
 
-import com.sergeytsemerov.newsapp.ui.NewsResponse
-import com.sergeytsemerov.newsapp.ui.util.Constants.Companion.API_KEY
+import com.sergeytsemerov.newsapp.models.NewsResponse
+import com.sergeytsemerov.newsapp.util.Constants.Companion.API_KEY
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Query

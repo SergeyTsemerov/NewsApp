@@ -1,4 +1,4 @@
-package com.sergeytsemerov.newsapp.ui.util
+package com.sergeytsemerov.newsapp.util
 
 class Constants {
 

@@ -1,6 +1,6 @@
-package com.sergeytsemerov.newsapp.ui.api
+package com.sergeytsemerov.newsapp.api
 
-import com.sergeytsemerov.newsapp.ui.util.Constants.Companion.BASE_URL
+import com.sergeytsemerov.newsapp.util.Constants.Companion.BASE_URL
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
