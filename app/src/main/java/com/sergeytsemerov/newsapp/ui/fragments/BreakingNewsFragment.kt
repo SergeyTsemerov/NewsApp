@@ -9,6 +9,7 @@ import com.sergeytsemerov.newsapp.adapters.NewsAdapter
 import com.sergeytsemerov.newsapp.databinding.FragmentBreakingNewsBinding
 import com.sergeytsemerov.newsapp.ui.MainActivity
 import com.sergeytsemerov.newsapp.ui.NewsViewModel
+import com.sergeytsemerov.newsapp.util.Constants.Companion.BREAKING_NEWS_FRAGMENT_TAG
 import com.sergeytsemerov.newsapp.util.Resource
 
 class BreakingNewsFragment :
@@ -22,7 +23,8 @@ class BreakingNewsFragment :
         viewModel = (activity as MainActivity).viewModel
 
         setupRecyclerView()
-        viewModel.breakingNews.observe(viewLifecycleOwner, Observer { response ->
+
+        viewModel.breakingNews.observe(viewLifecycleOwner) { response ->
             when (response) {
                 is Resource.Success -> {
                     hideProgressBar()
@@ -33,14 +35,14 @@ class BreakingNewsFragment :
                 is Resource.Error -> {
                     hideProgressBar()
                     response.message?.let { message ->
-                        Log.e(TAG, "Error: $message")
+                        Log.e(BREAKING_NEWS_FRAGMENT_TAG, "Error: $message")
                     }
                 }
                 is Resource.Loading -> {
                     showProgressBar()
                 }
             }
-        })
+        }
     }
 
     private fun hideProgressBar() {
@@ -57,9 +59,5 @@ class BreakingNewsFragment :
             adapter = newsAdapter
             layoutManager = LinearLayoutManager(activity)
         }
-    }
-
-    companion object {
-        const val TAG = "BreakingNewsFragment"
     }
 }
