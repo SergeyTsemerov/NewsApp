@@ -3,8 +3,9 @@ package com.sergeytsemerov.newsapp.ui.fragments
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.sergeytsemerov.newsapp.R
 import com.sergeytsemerov.newsapp.adapters.NewsAdapter
 import com.sergeytsemerov.newsapp.databinding.FragmentBreakingNewsBinding
 import com.sergeytsemerov.newsapp.ui.MainActivity
@@ -23,6 +24,16 @@ class BreakingNewsFragment :
         viewModel = (activity as MainActivity).viewModel
 
         setupRecyclerView()
+
+        newsAdapter.setOnItemClickListener {
+            val bundle = Bundle().apply {
+                putParcelable("article", it)
+            }
+            findNavController().navigate(
+                R.id.action_breakingNewsFragment_to_articleFragment,
+                bundle
+            )
+        }
 
         viewModel.breakingNews.observe(viewLifecycleOwner) { response ->
             when (response) {
