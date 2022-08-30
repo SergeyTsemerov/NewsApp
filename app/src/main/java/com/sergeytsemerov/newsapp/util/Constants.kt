@@ -8,5 +8,8 @@ class Constants {
         const val BREAKING_NEWS_FRAGMENT_TAG = "BreakingNewsFragment"
         const val SEARCH_NEWS_FRAGMENT_TAG = "SearchNewsFragment"
         const val SEARCH_TIME_DELAY = 500L
+        const val ARTICLE_SAVED = "Article saved successfully"
+        const val ARTICLE_DELETED = "Article deleted successfully"
+        const val UNDO = "Undo"
     }
 }

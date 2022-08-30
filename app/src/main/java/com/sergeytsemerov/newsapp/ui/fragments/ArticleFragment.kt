@@ -7,6 +7,8 @@ import androidx.navigation.fragment.navArgs
 import com.sergeytsemerov.newsapp.databinding.FragmentArticleBinding
 import com.sergeytsemerov.newsapp.ui.MainActivity
 import com.sergeytsemerov.newsapp.ui.NewsViewModel
+import com.sergeytsemerov.newsapp.util.Constants
+import com.sergeytsemerov.newsapp.util.showSnackBar
 
 class ArticleFragment :
     ViewBindingFragment<FragmentArticleBinding>(FragmentArticleBinding::inflate) {
@@ -22,6 +24,11 @@ class ArticleFragment :
         binding.webView.apply {
             webViewClient = WebViewClient()
             loadUrl(article.url)
+        }
+
+        binding.fab.setOnClickListener {
+            viewModel.saveArticle(article)
+            binding.articleFragment.showSnackBar(Constants.ARTICLE_SAVED)
         }
     }
 }
