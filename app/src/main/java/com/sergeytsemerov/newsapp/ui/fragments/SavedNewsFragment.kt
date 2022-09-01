@@ -13,6 +13,7 @@ import com.sergeytsemerov.newsapp.databinding.FragmentSavedNewsBinding
 import com.sergeytsemerov.newsapp.ui.MainActivity
 import com.sergeytsemerov.newsapp.ui.NewsViewModel
 import com.sergeytsemerov.newsapp.util.Constants
+import com.sergeytsemerov.newsapp.util.Constants.Companion.ARTICLE_DELETED
 
 class SavedNewsFragment :
     ViewBindingFragment<FragmentSavedNewsBinding>(FragmentSavedNewsBinding::inflate) {
@@ -52,7 +53,7 @@ class SavedNewsFragment :
                 val position = viewHolder.adapterPosition
                 val article = newsAdapter.differ.currentList[position]
                 viewModel.deleteArticle(article)
-                Snackbar.make(view, Constants.ARTICLE_DELETED, Snackbar.LENGTH_LONG).apply {
+                Snackbar.make(view, ARTICLE_DELETED, Snackbar.LENGTH_LONG).apply {
                     setAction(Constants.UNDO) {
                         viewModel.saveArticle(article)
                     }

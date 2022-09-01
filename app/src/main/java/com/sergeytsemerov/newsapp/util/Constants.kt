@@ -11,5 +11,6 @@ class Constants {
         const val ARTICLE_SAVED = "Article saved successfully"
         const val ARTICLE_DELETED = "Article deleted successfully"
         const val UNDO = "Undo"
+        const val QUERY_PAGE_SIZE = 20
     }
 }

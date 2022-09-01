@@ -7,7 +7,7 @@ import androidx.navigation.fragment.navArgs
 import com.sergeytsemerov.newsapp.databinding.FragmentArticleBinding
 import com.sergeytsemerov.newsapp.ui.MainActivity
 import com.sergeytsemerov.newsapp.ui.NewsViewModel
-import com.sergeytsemerov.newsapp.util.Constants
+import com.sergeytsemerov.newsapp.util.Constants.Companion.ARTICLE_SAVED
 import com.sergeytsemerov.newsapp.util.showSnackBar
 
 class ArticleFragment :
@@ -23,12 +23,12 @@ class ArticleFragment :
         val article = args.article
         binding.webView.apply {
             webViewClient = WebViewClient()
-            loadUrl(article.url)
+            article.url?.let { loadUrl(it) }
         }
 
         binding.fab.setOnClickListener {
             viewModel.saveArticle(article)
-            binding.articleFragment.showSnackBar(Constants.ARTICLE_SAVED)
+            binding.articleFragment.showSnackBar(ARTICLE_SAVED)
         }
     }
 }
